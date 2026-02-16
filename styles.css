@@ -17,6 +17,29 @@ body {
     position: relative;
     overflow-x: hidden;
 }
+    :root {
+        --bg-1: #021423;
+        --bg-2: #002b36;
+        --bg-3: #001f2b;
+        --text-color: #dff6ff;
+        --accent: #00b4d8;
+        --accent-2: #66d9ff;
+        --muted: #9fb9c8;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+        color: var(--text-color);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        position: relative;
+        overflow-x: hidden;
+    }
 
 /* Decorative background elements */
 body::before {
@@ -26,12 +49,25 @@ body::before {
     right: -50%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(74, 108, 247, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     animation: float-shape 15s ease-in-out infinite;
     z-index: 0;
 }
+    body::before {
+        content: '';
+        position: fixed;
+        top: -50%;
+        right: -50%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(0, 180, 216, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float-shape 15s ease-in-out infinite;
+        z-index: 0;
+    }
 
 body::after {
     content: '';
@@ -46,6 +82,19 @@ body::after {
     animation: float-shape-reverse 20s ease-in-out infinite;
     z-index: 0;
 }
+    body::after {
+        content: '';
+        position: fixed;
+        bottom: -30%;
+        left: -30%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 180, 216, 0.06) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float-shape-reverse 20s ease-in-out infinite;
+        z-index: 0;
+    }
 
 @keyframes float-shape {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -62,11 +111,21 @@ body::after {
     background: linear-gradient(135deg, rgba(10, 14, 39, 0.98) 0%, rgba(26, 31, 58, 0.98) 100%);
     padding: 40px 20px;
     text-align: center;
-    border-bottom: 2px solid rgba(74, 108, 247, 0.4);
+    border-bottom: 2px solid rgba(0, 180, 216, 0.22);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 2;
 }
+    .header-section {
+        width: 100%;
+        background: linear-gradient(135deg, rgba(0,10,18,0.96) 0%, rgba(0,18,28,0.96) 100%);
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 2px solid rgba(0,180,216,0.22);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 2;
+    }
 
 .header-section::before {
     content: '';
@@ -75,8 +134,26 @@ body::after {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(74, 108, 247, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.9), transparent);
 }
+    .header-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(0,180,216,0.9), transparent);
+    }
+    .header-section::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,180,216,0.6), transparent);
+    }
 
 .header-section::after {
     content: '';
@@ -85,7 +162,7 @@ body::after {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(74, 108, 247, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.6), transparent);
 }
 
 .header-content {
@@ -112,7 +189,7 @@ body::after {
     font-size: 32px;
     font-weight: 800;
     color: #ffffff;
-    text-shadow: 0 4px 12px rgba(74, 108, 247, 0.5);
+    text-shadow: 0 4px 12px rgba(0, 180, 216, 0.5);
 }
 
 .icon {
@@ -132,7 +209,7 @@ body::after {
 
 .title-display {
     font-size: 16px;
-    color: #7a8fcf;
+    color: #66d9ff;
     margin-bottom: 0;
     text-align: center;
     font-style: normal;
@@ -168,7 +245,7 @@ img:hover {
     position: absolute;
     width: 320px;
     height: 320px;
-    background: radial-gradient(circle, rgba(74, 108, 247, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.15) 0%, transparent 70%);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -187,22 +264,6 @@ img:hover {
     50% { transform: translate(-50%, -50%) scale(1.15); }
 }
 
-div {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(240, 248, 255, 0.95) 100%);
-    border-radius: 16px;
-    padding: 35px;
-    width: 100%;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-div:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    border-color: rgba(59, 130, 246, 0.4);
-}
-
 .about-section,
 .contact-section {
     margin-bottom: 30px;
@@ -215,9 +276,9 @@ div:hover {
     border-radius: 16px;
     padding: 35px;
     width: 100%;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(74, 108, 247, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0,180,216,0.12);
     transition: all 0.3s ease;
-    border: 1px solid rgba(74, 108, 247, 0.3);
+    border: 1px solid rgba(0,180,216,0.18);
     position: relative;
     overflow: hidden;
 }
@@ -230,7 +291,7 @@ div:hover {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, transparent, rgba(74, 108, 247, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0,180,216,0.9), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -238,8 +299,8 @@ div:hover {
 .about-card:hover,
 .contact-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(74, 108, 247, 0.25), inset 0 1px 0 rgba(74, 108, 247, 0.3);
-    border-color: rgba(74, 108, 247, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 180, 216, 0.25), inset 0 1px 0 rgba(0, 180, 216, 0.3);
+    border-color: rgba(0, 180, 216, 0.5);
 }
 
 .about-card:hover::before,
@@ -248,10 +309,10 @@ div:hover {
 }
 
 h1 {
-    color: #a0c4ff;
+    color: #bfefff;
     font-size: 40px;
     margin-bottom: 25px;
-    background: linear-gradient(135deg, #7a8fcf 0%, #a0c4ff 100%);
+    background: linear-gradient(135deg, #66d9ff 0%, #bfefff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -260,23 +321,23 @@ h1 {
     padding-bottom: 15px;
 }
 
-h1::after {
+body::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #4a6cf7, transparent);
-    border-radius: 2px;
+    position: fixed;
+    bottom: -30%;
+    left: -30%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float-shape-reverse 20s ease-in-out infinite;
+    z-index: 0;
 }
-
-h3 {
-    color: #7a8fcf;
+    color: #66d9ff;
     font-size: 22px;
     margin-bottom: 20px;
-    border-bottom: 3px solid #4a6cf7;
+    border-bottom: 3px solid #00b4d8;
     padding-bottom: 12px;
     font-weight: 700;
     position: relative;
@@ -288,20 +349,20 @@ h3::before {
     left: 0;
     bottom: -3px;
     height: 3px;
-    background: linear-gradient(90deg, #4a6cf7, transparent);
+    background: linear-gradient(90deg, #00b4d8, transparent);
     width: 40px;
     border-radius: 2px;
 }
 
 p {
-    color: #cbd5e1;
+    color: var(--muted);
     margin-bottom: 15px;
     font-size: 16px;
     line-height: 1.8;
 }
 
 a {
-    color: #7a8fcf;
+    color: #66d9ff;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -309,8 +370,8 @@ a {
 }
 
 a:hover {
-    color: #a0c4ff;
-    border-bottom-color: #7a8fcf;
+    color: #bfefff;
+    border-bottom-color: #66d9ff;
 }
 
 .contact-grid {
@@ -324,9 +385,9 @@ a:hover {
     display: flex;
     gap: 12px;
     padding: 12px;
-    background: rgba(74, 108, 247, 0.08);
+    background: rgba(0, 180, 216, 0.06);
     border-radius: 12px;
-    border-left: 4px solid #4a6cf7;
+    border-left: 4px solid #00b4d8;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -339,14 +400,14 @@ a:hover {
     right: 0;
     width: 30px;
     height: 30px;
-    background: radial-gradient(circle, rgba(74, 108, 247, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.22) 0%, transparent 70%);
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .contact-item:hover {
-    background: rgba(74, 108, 247, 0.15);
+    background: rgba(0, 180, 216, 0.12);
     transform: translateX(5px);
 }
 
@@ -370,14 +431,14 @@ a:hover {
 }
 
 .contact-value {
-    color: #a0c4ff;
+    color: #bfefff;
     font-weight: 700;
     font-size: 14px;
     margin: 0;
 }
 
 .contact-item a {
-    color: #7a8fcf;
+    color: #66d9ff;
     font-weight: 700;
     margin: 0;
 }
@@ -392,6 +453,58 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 15px;
 }
+
+/* CV section styles */
+.cv-section {
+    margin-bottom: 30px;
+}
+
+.cv-card {
+    background: linear-gradient(135deg, rgba(30, 35, 65, 0.95) 0%, rgba(25, 32, 55, 0.95) 100%);
+    border-radius: 16px;
+    padding: 28px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0,180,216,0.06);
+    border: 1px solid rgba(0,180,216,0.18);
+}
+
+.cv-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00b4d8 0%, #66d9ff 100%);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,180,216,0.22); }
+
+.download-btn.secondary {
+    background: rgba(255,255,255,0.03);
+    color: #bfefff;
+    border: 1px solid rgba(0,180,216,0.14);
+}
+
+.cv-embed {
+    display: none;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,180,216,0.10);
+}
+
+.cv-embed.open { display: block; }
+
+.cv-embed iframe { width: 100%; height: 100%; border: none; display: block; }
 
 .social-link {
     display: flex;
@@ -435,7 +548,7 @@ a:hover {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #4a6cf7;
+    background: #00b4d8;
     border-radius: 50%;
     top: 10%;
     right: 10%;
@@ -469,7 +582,7 @@ a:hover {
 
 .social-link.email:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(74, 108, 247, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 180, 216, 0.5);
 }
 
 .social-icon {
@@ -486,11 +599,11 @@ a:hover {
 .footer {
     width: 100%;
     background: rgba(10, 14, 39, 0.98);
-    color: #7a8fcf;
+    color: #66d9ff;
     text-align: center;
     padding: 20px;
     margin-top: auto;
-    border-top: 1px solid rgba(74, 108, 247, 0.3);
+    border-top: 1px solid rgba(0,180,216,0.3);
     font-size: 14px;
     position: relative;
     z-index: 2;
@@ -503,7 +616,7 @@ a:hover {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(74, 108, 247, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0,180,216,0.6), transparent);
 }
 
 @media (max-width: 768px) {
@@ -552,4 +665,7 @@ a:hover {
     .social-link {
         width: 100%;
     }
+
+    /* Make embedded CV height smaller on narrow viewports */
+    .cv-embed { height: 360px; }
 }

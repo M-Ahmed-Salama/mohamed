@@ -80,7 +80,48 @@
                 </div>
             </div>
         </section>
+        
+        <section class="cv-section">
+            <div class="cv-card">
+                <h3>Curriculum Vitae</h3>
+                <div class="cv-actions">
+                    <button type="button" class="download-btn view-btn" data-src="cv/mohamed%20ahmed%20cv.pdf" aria-expanded="false">View CV</button>
+                    <a href="cv/mohamed%20ahmed%20cv.pdf" download class="download-btn secondary">Download PDF</a>
+                </div>
+                <div class="cv-embed" aria-hidden="true">
+                    <iframe data-src="cv/mohamed%20ahmed%20cv.pdf" frameborder="0" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
+    <script>
+        (function(){
+            function toggleCV(btn){
+                var card = btn.closest('.cv-card');
+                if(!card) return;
+                var embed = card.querySelector('.cv-embed');
+                var iframe = embed && embed.querySelector('iframe');
+                var isOpen = embed.classList.contains('open');
+                if(!isOpen){
+                    if(iframe && iframe.dataset && iframe.dataset.src){ iframe.src = iframe.dataset.src; }
+                    embed.classList.add('open');
+                    embed.setAttribute('aria-hidden','false');
+                    btn.setAttribute('aria-expanded','true');
+                    setTimeout(function(){ embed.scrollIntoView({behavior:'smooth', block:'center'}); }, 100);
+                } else {
+                    embed.classList.remove('open');
+                    embed.setAttribute('aria-hidden','true');
+                    btn.setAttribute('aria-expanded','false');
+                    if(iframe) iframe.src = '';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function(){
+                var buttons = document.querySelectorAll('.view-btn');
+                buttons.forEach(function(b){ b.addEventListener('click', function(){ toggleCV(b); }); });
+            });
+        })();
+    </script>
 
     <footer class="footer">
         <p>&copy; 2025 Mohamed Ahmed. All rights reserved.</p>
